@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Measurement Sheet</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #fff;
+                color: #333;
+                /* min-height: 100vh; */
+            }
+
+            form {
+                width: 97%;
+                margin: 10px auto;
+                background-color: rgba(255,255,255,0.7);
+                padding: 15px;
+                border-radius: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            section {
+                /*margin-bottom: 25px;*/
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                text-align: center;
+                font-size: 13px;
+                padding-top: 8px;
+                padding-bottom: 15px;;
+                page-break-inside: avoid;
+            }
+            
+            select {
+                -webkit-overflow-scrolling: touch;
+                
+                -webkit-appearance: none; 
+                -moz-appearance: none;
+                appearance: none;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                background: url(http://dropdown/arrow/url/) no-repeat;
+                background-position: right center;
+                background-color: #CCCCCC;
+                color: #000000;
+                border: 1px solid #000000;
+                width: 100%;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+                color: #3498db;
+                font-size: 20px;
+            }
+
+            h3 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 18px;
+                /*margin-left: 25px;*/
+                color: rgb(42, 23, 255);
+            }
+
+            .form-group {
+                width: calc(48% - 10px);
+                margin-bottom: 15px;
+            }
+
+            input, select {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border: none;
+                /* border-bottom: 1px solid #ccc; Add an underline */
+                width: 100.94%;
+                background-color: transparent; /* Transparent background */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 16px;
+                text-align: center; /* Adjust text alignment */
+                padding-bottom: 10px;
+                font-size: 15px;
+                font-weight: bold;
+                color:rgb(57, 57, 255);
+            }
+
+            /* Style the label elements */
+            label {
+                margin-bottom: 8px;
+                padding-top: 5px;;
+                display: block;
+                /*font-weight: bold;*/
+            }
+
+            .lablecx {
+                margin-bottom: 8px;
+                padding-top: 5px;;
+                display: block;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 5px;
+            }
+
+            .customerInfo {
+                /*border-right: 1px solid #ccc;  */
+                margin-right: 5px;
+            }
+
+            button {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #3498dbb6;
+                color: #fff;
+                border: none;
+                border-radius: 25px;
+                margin-top: 10px;
+                margin-left: 9px;
+            }
+
+            button:hover {
+                background-color: #616bfce9; /* Darker green */
+                transform: scale(1.05); /* Scale the button slightly on hover */
+            }
+
+            .button2 {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #db3437a1;
+                color: #fff;
+                border: none;
+                border-radius: 25px;
+                margin-top: 10px;
+                margin-left: 9px;
+            }
+            .button2:hover {
+                background-color: #fc6170ec; /* Darker green */
+                transform: scale(1.05); /* Scale the button slightly on hover */
+            }
+            
+            @media print {
+                body {
+                    background-color: #fff;
+                }
+
+                section {
+                    margin-right: 0;
+                }
+            }
+            
+            #commentSection {
+                width: 100%;
+                /*margin: 10px auto;*/
+                background-color: #fff;
+                margin-top: 5px;
+                /*padding: 15px;*/
+                border-radius: 8px;
+                /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+            }
+
+            #commentSection h2 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+                color: #3498db;
+                font-size: 18px;
+            }
+
+            #commentSection textarea {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #fff;
+                font-size: 25px;
+                text-align: center;
+                background-color: #FFD3D3;
+                border-color: #babaff;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .left-aligned {
+                text-align: left;
+            }
+
+            .windowInfoSection {
+                /*border-right: 1px solid #ccc; */
+                padding-right: 17px; /* Adjust the spacing between the content and the line */
+            }
+
+            .windowInfoBottom {
+                padding-top: 15px;
+                padding-right: 17px;
+            }
+
+            .windowInfoSection {
+                position: relative;
+            }
+
+            .windowInfoSection .section-number {
+                position: absolute;
+                top: 5px;
+                left: 5px; /* Adjust the position to the top-left corner */
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .windowInfoSection .room {
+                padding-left: 30px; /* Add some left padding to make room for the counter */
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="button-container" style="text-align: center;">
+            <button type="button" onclick="saveData()" id="saveButton">SAVE</button>
+            <button type="button" id="addWindowButton" onclick="addWindowSection()">ADD WINDOW</button>
+            <button class="button2" id="removeWindowButton" onclick="removeWindowSection()">REMOVE WINDOW</button>
+            <button type="button" onclick="createCommentSection()" id="commentButton">ADD COMMENT</button>  
+            <button class="button2" id="removeCommentButton" onclick="removeCommentSection()">REMOVE COMMENT</button>
+            <button class="button2" type="button" onclick="clearWindowInfo()" id="clearButton">CLEAR</button>
+        </div>
+        <form>
+            <h3>Soroush - I0344</h3>
+            <section>
+
+                <div class="customerInfo">
+                    <label for="room" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Customer Name:</label>
+                    <input type="text" class="room" name="customerName" id="customerName" required>
+                </div>
+
+                <div class="customerInfo">
+                    <label for="quantity" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Order Number:</label>
+                    <input type="text" class="quantity" name="orderNumber" id="orderNumber" required>
+                </div>
+
+                <div class="customerInfo">
+                    <label for="mount" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Store Number:</label>
+                    <input type="text" class="mount" name="storeNumber" id="storeNumber" required>
+                </div>
+
+                <div class="customerInfo">
+                    <label for="width" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Date:</label>
+                    <input type="date" class="width" name="date" id="date" required>
+                </div>
+
+                <div class="customerInfo">
+                    <label for="wall" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Concrete</label>
+                    <input type="text" class="wall" name="wall" id="wall" required placeholder="0">
+                </div>
+
+                <div class="customerInfo">
+                    <label for="td" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Take Down</label>
+                    <input type="text" class="td" name="td" id="td" required placeholder="0">
+                </div>
+
+                <div class="customerInfo">
+                    <label for="hallaway" style=" border-bottom: 1px solid #ccc; padding-bottom: 5px;">Hallaway</label>
+                    <input type="text" class="hallaway" name="hallaway" id="hallaway" required placeholder="0">
+                </div>
+            </section>
+
+            <!-- Window Information Section (Dynamic) -->
+            <h2> </h2>
+            <section class="window-container">
+                
+                <div class="windowInfoSection window-info" style="width: calc(100% - 5px); border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; border-right: 1px solid #ccc;">
+                    <!-- <label for="room">ROOM:</label> -->
+                    <input type="text" class="room" name="room" id="room1" style="text-transform: uppercase; background-color: #D3E6FF; font-weight: bold; padding-bottom: 10px; padding-top: 10px;  border-left: 1px solid #ccc;" required placeholder="ROOM">
+                    <span class="section-number">1</span>
+                </div>
+
+                <div class="windowInfoBottom" style="width: calc(15% - 60px);">
+                    <label for="type" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Type:</label>
+                    <select class="type" name="type" id="type1" required>
+                        <option value="mt6"> </option>
+                        <option value="Roller">Roller</option>
+                        <option value="Cascade">Cascade</option>
+                        <option value="Horizantal1">1" Alum</option>
+                        <option value="Horizantal2">2" Horiz</option>
+                        <option value="Vertical">Vertical</option>
+                        <option value="Romen">Romen</option>
+                        <option value="ww">Woven</option>
+                    </select>
+                </div>
+
+                <div class="windowInfoBottom" style="width: calc(3% - 1px); ">
+                    <label for="quantity" style="border-bottom: 1px solid #fff; padding-bottom: 5px">QTY:</label>
+                    <input type="text" class="quantity" name="quantity" id="quantity1" required placeholder="1">
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(5% - 5px);">
+                    <label for="mount" style="border-bottom: 1px solid #fff; padding-bottom: 5px">I/O:</label>
+                    <select class="mount" name="mount" id="mount1" required>
+                        <option value="mt5"> </option>
+                        <option value="inside">Inside</option>
+                        <option value="outside">Outside</option>
+                    </select>
+                </div>
+                
+        
+                <div class="windowInfoBottom" style="width: calc(10% - 60px);">
+                    <label for="width" style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">Window Size:</label>
+                    <div style="display: flex;">
+                        <div style="flex: 1;">
+                            <select class="width" name="width" id="width1" required placeholder=" ">
+                                <option value=" "> </option>
+                                <!-- Options for the width dropdown (1 to 140) will be generated using JavaScript -->
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <select class="fraction" name="fraction" id="fraction1" required placeholder=" ">
+                                <!-- Options for the fraction dropdown -->
+                                <option value="mt10"> </option>
+                                <option value="0">0</option>
+                                <option value="1/8">1/8</option>
+                                <option value="1/4">1/4</option>
+                                <option value="3/8">3/8</option>
+                                <option value="1/2">1/2</option>
+                                <option value="5/8">5/8</option>
+                                <option value="5/8">3/4</option>
+                                <option value="7/8">7/8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+        
+                <div class="windowInfoBottom" style="width: calc(10% - 60px);">
+                    <label for="height" style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">Window Size:</label>
+                    <div style="display: flex;">
+                        <div style="flex: 1;">
+                            <select class="height" name="height" id="height1" required placeholder=" ">
+                                <option value=" "> </option>
+                                <!-- Options for the height dropdown (1 to 140) will be generated using JavaScript -->
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <select class="fraction" name="fraction" id="fraction1" required placeholder=" ">
+                                <!-- Options for the fraction dropdown -->
+                                <option value="mt11"> </option>
+                                <option value="0">0</option>
+                                <option value="1/8">1/8</option>
+                                <option value="1/4">1/4</option>
+                                <option value="3/8">3/8</option>
+                                <option value="1/2">1/2</option>
+                                <option value="5/8">5/8</option>
+                                <option value="5/8">3/4</option>
+                                <option value="7/8">7/8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(5% - 1px);" >
+                    <label for="depth" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Depth:</label>
+                    <input type="text" class="depth" name="depth" id="depth1" required placeholder="3">
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(10% - 60px);">
+                    <label for="width1" style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">Window Size:</label>
+                    <div style="display: flex;">
+                        <div style="flex: 1;">
+                            <select class="width1" name="width1" id="width2" required placeholder=" ">
+                                <option value=" "> </option>
+                                <!-- Options for the width dropdown (1 to 140) will be generated using JavaScript -->
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <select class="fraction" name="fraction" id="fraction1" required placeholder=" ">
+                                <!-- Options for the fraction dropdown -->
+                                <option value="mt12"> </option>
+                                <option value="0">0</option>
+                                <option value="1/8">1/8</option>
+                                <option value="1/4">1/4</option>
+                                <option value="3/8">3/8</option>
+                                <option value="1/2">1/2</option>
+                                <option value="5/8">5/8</option>
+                                <option value="5/8">3/4</option>
+                                <option value="7/8">7/8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(10% - 60px);">
+                    <label for="height2" style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">Window Size:</label>
+                    <div style="display: flex;">
+                        <div style="flex: 1;">
+                            <select class="height2" name="height2" id="height2" required placeholder=" ">
+                                <option value=" "> </option>
+                                <!-- Options for the height dropdown (1 to 140) will be generated using JavaScript -->
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <select class="fraction" name="fraction" id="fraction1" required placeholder=" ">
+                                <!-- Options for the fraction dropdown -->
+                                <option value="mt13"> </option>
+                                <option value="0">0</option>
+                                <option value="1/8">1/8</option>
+                                <option value="1/4">1/4</option>
+                                <option value="3/8">3/8</option>
+                                <option value="1/2">1/2</option>
+                                <option value="5/8">5/8</option>
+                                <option value="5/8">3/4</option>
+                                <option value="7/8">7/8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        
+        
+                <div class="windowInfoBottom" style="width: calc(3% - 1px);">
+                    <label for="wand" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Wand:</label>
+                    <select class="wand" name="wand" id="wand1" required>
+                        <option value="mt3"> </option>
+                        <option value="right">R</option>
+                        <option value="left">L</option>
+                    </select>
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(3% - 1px);">
+                    <label for="motor" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Motor:</label>
+                    <select class="motor" name="motor" id="motor1" required>
+                        <option value="mt2"> </option>
+                        <option value="right">R</option>
+                        <option value="left">L</option>
+                    </select>
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(3% - 1px);">
+                    <label for="vertical" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Vertical:</label>
+                    <select class="vertical" name="vertical" id="vertical1" required>
+                        <option value="mt"> </option>
+                        <option value="right">R</option>
+                        <option value="center">C</option>
+                        <option value="left">L</option>
+                    </select>
+                </div>
+        
+                <div class="windowInfoBottom" style="width: calc(3% - 1px);">
+                    <label for="wall" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Concrete:</label>
+                    <input type="checkbox" class="wall" name="wall" id="wall1" value="Concrete" onclick="updateWallCount(this)" />
+                </div>
+                
+        
+                <div class="windowInfoBottom" style="width: calc(3% - 1px);">
+                    <label for="td" style="border-bottom: 1px solid #fff; padding-bottom: 5px">T.D:</label>
+                    <input type="checkbox" class="td" name="td" id="td1" value="yes" onclick="updateTDCount(this)" />
+                </div>
+                
+                
+        
+                <div class="windowInfoBottom" style="width: calc(15% - 60px);">
+                    <label for="comm" style="border-bottom: 1px solid #fff; padding-bottom: 5px">Comment:</label>
+                    <input type="text" class="comm" name="comm" id="comm1" required>
+                </div>
+            </section>
+        </form>
+        
+        <script>
+
+
+             // Function to generate options for the dropdowns
+    function generateOptions(selectElement, start, end) {
+        for (var i = start; i <= end; i++) {
+            var option = document.createElement("option");
+            option.text = i;
+            option.value = i;
+            selectElement.add(option);
+        }
+    }
+
+    // Call the function to generate options for the first dropdown (Window Width: 1 to 140)
+    var widthDropdown = document.getElementById("width1");
+    generateOptions(widthDropdown, 0, 140);
+
+    // Call the function to generate options for the first dropdown (Window Width: 1 to 140)
+    var heightDropdown = document.getElementById("height1");
+    generateOptions(heightDropdown, 0, 140);
+
+    // Call the function to generate options for the first dropdown (Window Width: 1 to 140)
+    var width1Dropdown = document.getElementById("width2");
+    generateOptions(width1Dropdown, 0, 140);
+
+ // Call the function to generate options for the first dropdown (Window Width: 1 to 140)
+    var height1Dropdown = document.getElementById("height2");
+    generateOptions(height1Dropdown, 0, 140);
+
+
+
+
+            let windowSectionCounter = 1; // Initialize the counter
+
+            // Function to update the "Concrete" count in the customer section
+            function updateWallCount(checkbox) {
+                // Get the Concrete input field in the customer section
+                const wallInput = document.getElementById('wall');
+
+                // Check if the checkbox is checked or unchecked
+                if (checkbox.checked) {
+                    // If checked, increment the count in the "Concrete" field
+                    wallInput.value = parseInt(wallInput.value || 0) + 1;
+                } else {
+                    // If unchecked, decrement the count in the "Concrete" field (if greater than 0)
+                    wallInput.value = Math.max(parseInt(wallInput.value || 0) - 1, 0);
+                }
+            }
+    
+            function updateTDCount(checkbox) {
+                // Get the TD input field in the customer section
+                const tdInput = document.getElementById('td');
+
+                // Check if the checkbox is checked or unchecked
+                if (checkbox.checked) {
+                    // If checked, increment the count in the "Take Down" field
+                    tdInput.value = parseInt(tdInput.value || 0) + 1;
+                } else {
+                    // If unchecked, decrement the count in the "Take Down" field (if greater than 0)
+                    tdInput.value = Math.max(parseInt(tdInput.value || 0) - 1, 0);
+                }
+            }
+
+            function convertToFraction(input) {
+            // Get the input value
+                const inputValue = input.value.trim();
+
+                // Check if the input is a fraction or a valid decimal
+                const isFraction = /^\d+\/\d+$/.test(inputValue);
+                const isValidDecimal = /^(\d*\.\d{3,5})?$/.test(inputValue);
+
+                if (isFraction || isValidDecimal || inputValue === "") {
+                    // If the input is a fraction, a valid decimal, or an empty string, leave it as it is
+                    if (isValidDecimal) {
+                        input.value = convertDecimalToFraction(inputValue);
+                    }
+                } else {
+                    // If the input is neither a fraction nor a valid decimal, show an error or handle it as needed
+                    console.error('Invalid input value');
+                    // You may want to add further handling for invalid input
+                }
+            }
+
+            function convertDecimalToFraction(decimal) {
+                const tolerance = 1.0E-9;
+                const inchFractions = [1, 2, 4, 8, 16, 32, 64];
+
+                // Round to the nearest 1/8th inch
+                const roundedDecimal = Math.round(decimal * 8) / 8;
+
+                for (let denominator of inchFractions) {
+                    for (let numerator = Math.round(roundedDecimal * denominator); numerator <= Math.round(roundedDecimal * denominator) + 1; numerator++) {
+                        if (Math.abs(roundedDecimal - numerator / denominator) < tolerance) {
+                            const wholePart = Math.floor(numerator / denominator);
+                            const remainder = numerator % denominator;
+
+                            if (remainder !== 0) {
+                                if (wholePart === 0) {
+                                    return `${remainder}/${denominator}`;
+                                } else {
+                                    return `${wholePart} ${remainder}/${denominator}`;
+                                }
+                            } else {
+                                return `${wholePart}`;
+                            }
+                        }
+                    }
+                }
+                return `${roundedDecimal.toFixed(3)}`; // Default to decimal inches if no matching fraction is found
+            }
+
+            function addWindowSection() {
+                // Clone the entire window information section and append it to the form
+                const windowSections = document.querySelectorAll('.window-container');
+                const lastWindowSection = windowSections[windowSections.length - 1];
+
+                if (lastWindowSection) {
+                    const newWindowSection = lastWindowSection.cloneNode(true);
+
+                    // Increment the counter for the next window section
+                    windowSectionCounter++;
+
+                    // Update the section number in the cloned window section
+                    const sectionNumberElement = newWindowSection.querySelector('.section-number');
+                    if (sectionNumberElement) {
+                        sectionNumberElement.textContent = windowSectionCounter;
+                    }
+
+                    // Reset input field values in the cloned section
+                    newWindowSection.querySelectorAll('input, select').forEach(element => {
+                        element.value = '';
+
+                        // Reset checkbox states
+                        if (element.type === 'checkbox') {
+                            element.checked = false;
+                        }
+                    });
+
+                    // Append the new window section to the form
+                    document.querySelector('form').appendChild(newWindowSection);
+
+                    // Show the remove button when adding sections
+                    const removeWindowButton = document.getElementById('removeWindowButton');
+                    removeWindowButton.style.display = 'inline-block';
+                } else {
+                    console.error('No existing window section found.');
+                }
+            }
+
+            function saveData() {
+                const customerData = {
+                    customerName: document.getElementById('customerName').value,
+                    orderNumber: document.getElementById('orderNumber').value,
+                    storeNumber: document.getElementById('storeNumber').value,
+                    date: document.getElementById('date').value,
+                    // intallerID: document.getElementById('intallerID').value,
+                    // intallerName: document.getElementById('intallerName').value,
+                };
+                const roomElement = document.getElementById(`room${windowSectionCounter}`);
+                if (roomElement) {
+                    roomElement.value = roomElement.value.toUpperCase();
+                }
+                const windowDataList = [];
+                const windowSections = document.querySelectorAll('windowInfoSection');
+                windowSections.forEach((windowSection, index) => {
+                    // Add a check for null before accessing properties
+                    const roomElement = windowSection.querySelector('input[name="room"]');
+                    const quantityElement = windowSection.querySelector('quantity');
+                    const mountElement = windowSection.querySelector('mount');
+                    const widthElement = windowSection.querySelector('width');
+                    const heightElement = windowSection.querySelector('height');
+                    const depthElement = windowSection.querySelector('depth');
+
+                    if (roomElement && quantityElement && mountElement && widthElement && heightElement && depthElement) {
+                        const convertedWidth = convertDimensionsToFraction(parseFloat(widthElement.value));
+                        const convertedHeight = convertDimensionsToFraction(parseFloat(heightElement.value));
+
+
+                        const windowData = {
+                            room: roomElement.value,
+                            quantity: quantityElement.value,
+                            mount: mountElement.value,
+                            width: widthElement.value,
+                            height: heightElement.value,
+                            depth: depthElement.value,
+                        };
+                        windowDataList.push(windowData);
+                    } else {
+                        console.error('One or more elements in the window section are null.');
+                    }
+                });
+
+                console.log('Customer Data:', customerData);
+                console.log('Window Data List:', windowDataList);
+                // Generate PDF
+                const pdfData = {
+                    customerData,
+                    windowDataList,
+                };
+
+                generatePDF(pdfData);
+            }    
+
+            function generatePDF(data) {
+                const addButton = document.getElementById('addWindowButton');
+                const saveButton = document.getElementById('saveButton');
+                const clearButton = document.getElementById('clearButton');
+                const commentButton = document.getElementById('commentButton');
+                const removeWindowButton = document.getElementById('removeWindowButton');
+                const removeCommentButton = document.getElementById('removeCommentButton');
+
+                addButton.style.display = 'none';
+                saveButton.style.display = 'none';
+                clearButton.style.display = 'none';
+                commentButton.style.display = 'none';
+                removeWindowButton.style.display = 'none';
+                removeCommentButton.style.display = 'none';
+
+                // Extract customer name and order number from the data
+                const customerName = data.customerData.customerName;
+                const orderNumber = data.customerData.orderNumber;
+
+                // Convert spaces to underscores and remove any special characters
+                const sanitizedCustomerName = customerName.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+                const sanitizedOrderNumber = orderNumber.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+
+                // Generate PDF with customer name and order number in the filename
+                html2pdf().from(document.body)
+                .set({
+                    filename: `${sanitizedCustomerName}_${sanitizedOrderNumber}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    // html2canvas: { scale: 1.5 }, // Reduced scale
+                    jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' },
+                })
+                .toPdf()
+                .get('pdf')
+                .then(function (pdf) {
+                    const totalPages = pdf.internal.getNumberOfPages();
+                    pdf.setFontSize(10); // Set the font size for the page numbers
+                    pdf.setTextColor(150); // Set the text color for the page numbers
+                    for (let i = 1; i <= totalPages; i++) {
+                        pdf.setPage(i);
+                        pdf.text('Page ' + i + ' of ' + totalPages, pdf.internal.pageSize.getWidth() - 30, pdf.internal.pageSize.getHeight() - 5);
+                    }
+                })
+                .save()
+                .then(() => {
+                    addButton.style.display = 'inline-block';
+                    saveButton.style.display = 'inline-block';
+                    clearButton.style.display = 'inline-block';
+                    commentButton.style.display = 'inline-block';
+                    removeWindowButton.style.display = 'inline-block';
+                    removeCommentButton.style.display = 'inline-block';
+                })
+                .catch((error) => {
+                    console.error('Error generating PDF:', error);
+                    addButton.style.display = 'inline-block';
+                    saveButton.style.display = 'inline-block';
+                    clearButton.style.display = 'inline-block';
+                    commentButton.style.display = 'inline-block';
+                    removeWindowButton.style.display = 'inline-block';
+                    removeCommentButton.style.display = 'inline-block';
+                });
+            }
+
+            function clearWindowInfo() {
+                // Display a confirmation prompt
+                const confirmed = confirm("Are you sure you want to clear?");
+                if (confirmed) {
+                    // Clear customer information fields
+                    // document.getElementById('customerName').value = '';
+                    // document.getElementById('orderNumber').value = '';
+                    // document.getElementById('storeNumber').value = '';
+                    // document.getElementById('date').value = '';
+                    document.getElementById('wall').value = ''; // Clear Wall
+                    document.getElementById('td').value = '';   // Clear TD
+                    document.getElementById('hallaway').value = ''; // Clear Hallaway
+                    document.getElementById('wall1').checked = false; // Clear Concrete checkbox
+                    document.getElementById('td1').checked = false;   // Clear T.D. checkbox
+
+                    // Clear window information fields in all sections
+                    const windowSections = document.querySelectorAll('.window-container');
+                    windowSections.forEach((windowSection) => {
+                        const inputFields = windowSection.querySelectorAll('input, select');
+                        inputFields.forEach((field) => {
+                            field.value = '';
+                        });
+                    });
+
+                    // Clear comments if the comment section exists
+                    const commentTextarea = document.getElementById('comments');
+                    if (commentTextarea) {
+                        commentTextarea.value = '';
+                    }
+                } else {
+                    // User clicked 'Cancel,' do nothing
+                }
+            }
+            
+            function createCommentSection() {
+                // Check if the comment section already exists
+                const existingCommentSection = document.getElementById('commentSection');
+
+                if (!existingCommentSection) {
+                    // Create a new comment section
+                    const commentSection = document.createElement('section');
+                    commentSection.id = 'commentSection';
+                    commentSection.style.marginTop = '20px';
+
+                    // Add a title for the comment section
+                    const commentTitle = document.createElement('h2');
+                    commentTitle.textContent = 'Comments';
+                    commentSection.appendChild(commentTitle);
+
+                    // Add a textarea for entering comments
+                    const commentTextarea = document.createElement('textarea');
+                    commentTextarea.name = 'comments';
+                    commentTextarea.id = 'comments';
+                    commentTextarea.rows = '1';
+                    commentTextarea.style.width = '100%';
+                    commentSection.appendChild(commentTextarea);
+
+                    // Append the comment section to the form
+                    const form = document.querySelector('form');
+                    form.appendChild(commentSection);
+
+                    // Show the remove button when creating the comment section
+                    const removeCommentButton = document.getElementById('removeCommentButton');
+                    removeCommentButton.style.display = 'inline-block';
+                } else {
+                    console.log('Comment section already exists.');
+                }
+            }
+
+            function addPageBreak() {
+                const pageBreak = document.createElement('div');
+                pageBreak.className = 'page-break';
+                document.body.appendChild(pageBreak);
+            }
+            
+            function removeWindowSection() {
+                // Select all window sections
+                const windowSections = document.querySelectorAll('.window-container');
+    
+                // Check if there's more than one section left
+                if (windowSections.length > 1) {
+                    // Display a confirmation prompt
+                    const confirmation = confirm('Are you sure you want to remove the last window section?');
+                    if (confirmation) {
+                        // Remove the last window section (from the bottom)
+                        const lastWindowSection = windowSections[windowSections.length - 1];
+
+                        // Decrement the "Concrete" count if the checkbox is checked
+                        const wallCheckbox = lastWindowSection.querySelector('.wall');
+                        if (wallCheckbox && wallCheckbox.checked) {
+                            const wallInput = document.getElementById('wall');
+                            wallInput.value = Math.max(parseInt(wallInput.value || 0) - 1, 0);
+                        }
+
+                        // Decrement the "T.D." count if the checkbox is checked
+                        const tdCheckbox = lastWindowSection.querySelector('.td');
+                        if (tdCheckbox && tdCheckbox.checked) {
+                            const tdInput = document.getElementById('td');
+                            tdInput.value = Math.max(parseInt(tdInput.value || 0) - 1, 0);
+                        }
+
+                        // Remove the last window section
+                        lastWindowSection.remove();
+                    }
+                } else {
+                    console.log('Cannot remove the last section.');
+                }
+            }
+
+            function removeCommentSection() {
+                // Select the comment section
+                const commentSection = document.getElementById('commentSection');
+                if (commentSection) {
+                    // Display a confirmation prompt
+                    const confirmation = confirm('Are you sure you want to remove the comment section?');
+                    if (confirmation) {
+                        // Remove the comment section
+                        commentSection.remove();
+                    }
+                } else {
+                    console.log('Comment section does not exist.');
+                }
+            }
+
+    		var today = new Date().toLocaleDateString('en-CA');
+    		document.getElementById('date').value = today;
+            
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+</html>
