@@ -861,6 +861,11 @@
                 }
             }
 
+             window.addEventListener('beforeunload', function(e) {
+                // Display a confirmation message when the user tries to leave the page
+                e.returnValue = 'Are you sure you want to leave this page? Your changes may not be saved.';
+            });
+            
     		var today = new Date().toLocaleDateString('en-CA');
     		document.getElementById('date').value = today;
             
